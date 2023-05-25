@@ -1,19 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class BGmusic : MonoBehaviour
+using UnityEngine.SceneManagement;
+ 
+public class SwapScenes : MonoBehaviour
 {
-    public static BGmusic instance;
-
-    void Awake()
+    void Update()
     {
-        if (instance != null)
-            Destroy(gameObject);
-        else
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+ 
     }
 }
